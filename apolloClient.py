@@ -82,27 +82,15 @@ class apollo_client(object):
 
 
 if __name__ == '__main__':
-    apollo_config_url = 'http://10.50.132.68:8080'
-    appid = '10002'
-    namespace = '0001.BaseConfig'
+    apollo_config_url = 'http://106.54.227.205:8080'
+    appid = '123456654321'
+    namespace = 'yun1.test'
     ac = apollo_client(apollo_config_url, appid, namespace)
     while True:
-        value = ac.get_value('af', 'defaultvalue')
+        value = ac.get_value('1', 'defaultvalue')
         if value:
             ac.send2MQ()
             print('配置更新，推送到了MQ')
         else:
             print('配置没有更新')
         time.sleep(10)
-    # apollo_config_url = 'http://106.54.227.205:8080'
-    # appid = '123456654321'
-    # namespace = 'yun1.test'
-    # ac = apollo_client(apollo_config_url, appid, namespace)
-    # while True:
-    #     value = ac.get_value('1', 'defaultvalue')
-    #     if value:
-    #         ac.send2MQ()
-    #         print('配置更新，推送到了MQ')
-    #     else:
-    #         print('配置没有更新')
-    #     time.sleep(10)
